@@ -1,0 +1,14 @@
+html, body {
+   width:100%; height:100%;
+   overflow: hidden;
+} /* just to be sure these are full screen*/
+
+canvas { 
+  display:block;
+  background: lightgrey;
+} /* To remove the scrollbars */
+
+b {
+  font-family: 'Lucida Sans Unicode';	
+  color: #330000;
+}
