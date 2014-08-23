@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html onkeydown="keyPressed(event)" onkeyup="keyReleased(event)">
 <head>
-	<link rel="stylesheet" type="text/css" href="spectr.css">
+	<link rel="stylesheet" type="text/css" href="style/spectr.css">
 </head>
 	<body>
 		<canvas id = "field" style="border:1px solid #000000;"></canvas>
@@ -15,11 +15,13 @@
 		<!--
 		<img id="pic" style="position: absolute; top: 23px; left: 218px;" src="http://cs618030.vk.me/v618030452/8e53/zDzufchYWYY.jpg" height="30" onclick="mute()"> 
 		-->
-		<img id="onbut" style="position: absolute;"  src="https://www.dropbox.com/s/rstjfie58gudiig/start.png?dl=1" onclick="start()">
+		<img id="onbut" style="position: absolute;"  src="img/start.png" onclick="start()">
 
 		<b id="finaltxt" style="position: absolute;"> GAME OVER! </b>
-		
-		<script src="spectr.js"></script>
+
+        <script src="js/draw.js"></script>
+        <script src="js/init.js"></script>
+		<script src="js/core.js"></script>
 
 	</body>
 </html>
