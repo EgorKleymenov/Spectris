@@ -1,25 +1,25 @@
 function start() {
-  document.getElementById('onbut').style.display='none';
-  document.getElementById('finaltxt').style.display='none';
-  context.globalAlpha = 1;
-  for (var i = 0; i < 14; i++) {
-    for (var j = 0; j < 24; j++) {
-      fieldArr[i][j] = 0;
-    }
-  }
-  score = 0;
-  test02 = 0;
-  fNum = 1;
-  fsize = 0;
-  newC = -1;
-  MaskX = 0;
-  MaskY = 0;
-  newF = -1;
-  countt = 0;
+    document.getElementById('onbut').style.display='none';
+    document.getElementById('finaltxt').style.display='none';
+    context.globalAlpha = 1;
 
-  drawBorder();
-  drawField();
-  drawStuff();
+    for (var i = 0; i < 14; i++)
+        for (var j = 0; j < 24; j++)
+            fieldArr[i][j] = 0;
+
+    score = 0;
+    test02 = 0;
+    fNum = 1;
+    fsize = 0;
+    newC = -1;
+    MaskX = 0;
+    MaskY = 0;
+    newF = -1;
+    countt = 0;
+
+    drawBorder();
+    drawField();
+    drawStuff();
 }
 
 function gameover() {
@@ -41,13 +41,15 @@ function gameover() {
 }
 
 function keyReleased(e) {
-  release = 1;
+    release[e.which] = 1;
 }
 
 function keyPressed(e) {
-    if (!release) return 0;
-    release = 0;
     var code = e.which;
+    if (!release[code]) return 0;
+
+    release[code] = 0;
+
     if (code == 38) {
         setTimeout (function() {
             Frotate(MaskX, MaskY, fNum-1);
@@ -55,17 +57,16 @@ function keyPressed(e) {
             drawField();
             drawFigures();
             drawBorder();
-            if (release == 0) setTimeout(arguments.callee, 100);
+            if (release[code] == 0) setTimeout(arguments.callee, 100);
         }, 100)
-    }
-    else if (code > 36 && code < 41) {
+    } else if (code > 36 && code < 41) {
         Fmove(code-38, MaskX, MaskY, fNum-1);
         setTimeout (function() {
             context.clearRect (0, 0, canvas.width, canvas.height);
             drawField();
             drawFigures();
             drawBorder();
-            if ( (release == 0) && Fmove(code-38, MaskX, MaskY, fNum-1)) setTimeout(arguments.callee, 100);
+            if ( (release[code] == 0) && Fmove(code-38, MaskX, MaskY, fNum-1)) setTimeout(arguments.callee, 100);
         }, 100)
     }
 }

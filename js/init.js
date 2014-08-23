@@ -1,6 +1,6 @@
 var canvas = document.getElementById('field');
 var context = canvas.getContext('2d');
-var release;
+var release = [1, 1, 1, 1];
 var timeoutID = 0;
 var test02 = 0;
 
