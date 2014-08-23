@@ -2,6 +2,7 @@ function start() {
     document.getElementById('onbut').style.display='none';
     document.getElementById('finaltxt').style.display='none';
     context.globalAlpha = 1;
+    canvas.focus();
 
     for (var i = 0; i < 14; i++)
         for (var j = 0; j < 24; j++)
