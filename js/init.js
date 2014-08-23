@@ -1,8 +1,6 @@
 var canvas = document.getElementById('field');
 var context = canvas.getContext('2d');
 var release = [1, 1, 1, 1];
-var timeoutID = 0;
-var test02 = 0;
 
 var cellsX = 14;
 var cellsY = 24;
@@ -10,6 +8,10 @@ var score = 0;
 var gameW = Math.round(350*((document.body.offsetWidth-15)/1351));
 var gameH = Math.round(600*((document.body.offsetHeight-20)/657));
 var cellX = Math.round((gameW/14+gameH/24)/2);
+
+var timeout = 200,
+    keyFirstTimeout = 150,
+    keyNextTimeout = 50;
 
 var fieldArr = new Array(14);     // rows
 for (var i = 0; i < 14; i++) {
