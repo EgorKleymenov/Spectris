@@ -24,18 +24,20 @@ function start() {
 
 function startGame() {
     spawn();
+    update();
 
     setTimeout( function() {
-        update();
-
         if (Fmove(3, MaskX, MaskY, fNum-1)) { // moveDown
+            update();
             setTimeout(arguments.callee, timeout);
         } else {
             freeze(MaskX, MaskY, fNum-1);
 
             if (spawn()) {
+                update();
                 setTimeout(arguments.callee, timeout);
             } else {
+                update();
                 gameover();
                 return;
             }

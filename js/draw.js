@@ -23,18 +23,19 @@ function drawBorder() {
 function drawFigures() {
     for (var i = 0; i < cellsX; i++)
         for (var j = 0; j < cellsY; j++)
-            if (fieldArr[i][j] !== 0)
+            if (fieldArr[i][j] > 0)
                 drawCell(i, j, (fieldArr[i][j]%10));
 
     for (var i = MaskX; i < MaskX + fsize; i++)
         for (var j = MaskY; j < MaskY + fsize; j++)
-            if (Mask[i-MaskX][j-MaskY]*((fNum-1)*10 + newC))
+            if (Mask[i-MaskX][j-MaskY] > 0)
                 drawCell(i, j, newC);
 }
 
 function drawCell(x, y, c) {
     context.strokeStyle = "lightgrey";
     context.lineWidth = 3.5;
+
     if (c != 9) {
         context.fillStyle = colors[c];
     } else {
