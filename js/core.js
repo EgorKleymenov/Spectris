@@ -57,17 +57,18 @@ function gameover() {
 }
 
 function keyReleased(e) {
-    release[e.which] = 1;
+    release[e.which-37] = true;
 }
 
 function keyPressed(e) {
-    var code = e.which;
-    console.log(code);
+    var code = e.which - 37;
+
+    if (code < 0 && code > 3) return 0;
     if (!release[code]) return 0;
 
-    release[code] = 0;
+    release[code] = false;
 
-    if (code == 38) {
+    if (code == 1) {
         Frotate(MaskX, MaskY, fNum - 1);
         update();
 
@@ -79,17 +80,17 @@ function keyPressed(e) {
                 setTimeout(arguments.callee, keyNextTimeout);
             }
         }, keyFirstTimeout);
-    } else if (code > 36 && code < 41) {
-        Fmove(code-37, MaskX, MaskY, fNum-1);
+    } else if (code > -1 && code < 4) {
+        Fmove(code, MaskX, MaskY, fNum-1);
         update();
 
         setTimeout (function() {
             if (release[code] == 0) {
-                Fmove(code-37, MaskX, MaskY, fNum-1);
+                Fmove(code, MaskX, MaskY, fNum-1);
                 update();
 
-                if(code == 40) // moveDown
-                    setTimeout(arguments.callee, keyFirstimeout);
+                if(code == 3) // moveDown
+                    setTimeout(arguments.callee, keyFirstTimeout);
                 else
                     setTimeout(arguments.callee, keyNextTimeout);
             }

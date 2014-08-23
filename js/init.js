@@ -1,6 +1,6 @@
 var canvas = document.getElementById('field');
 var context = canvas.getContext('2d');
-var release = [1, 1, 1, 1];
+var release = [true, true, true, true];
 
 var cellsX = 14;
 var cellsY = 24;
