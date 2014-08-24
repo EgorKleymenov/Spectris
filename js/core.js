@@ -106,7 +106,7 @@ function Frotate(X, Y, N) {
     // try rotate
     for (var i = 0; i < fsize; i++)
         for (var j = 0; j < fsize; j++)
-            Mask[i][j] = MaskCopy[j][i];
+            Mask[i][j] = MaskCopy[j][fsize-i-1];
 
     if ( !figureIntersectsWithField(X, Y, N) ) {
         return 1;
