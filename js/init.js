@@ -9,8 +9,8 @@ var gameW = Math.round(350*((document.body.offsetWidth-15)/1351));
 var gameH = Math.round(600*((document.body.offsetHeight-20)/657));
 var cellX = Math.round((gameW/14+gameH/24)/2);
 
-var timeout = 200,
-    keyFirstTimeout = 150,
+var timeout = 100,
+    keyFirstTimeout = 75,
     keyNextTimeout = 50;
 
 var fieldArr = new Array(14);     // rows
